@@ -14,35 +14,23 @@ class MyApp extends StatelessWidget {
       // Flutter에서 앱 디자인 넣는 법 : 위젯 짜깁기
       home: Scaffold( // App을 상, 중, 하로 나눠준다.
         appBar: AppBar(),
-        body: Container(
-          height: 150,
-          padding: EdgeInsets.all(20),
-          child: Row(
-            children: [
-              Image.asset('dog.jpg', width: 150),
-              Container(
-                width: 300,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start, // x축 정렬
-                  children: [
-                    Text('코인팝니다', style: TextStyle()),
-                    Text('중구'),
-                    Text('10,000원'),
-                    Row(
-                    // 하트 Icon 우측 이동 => Row안에서 mainAxis정렬
-                      mainAxisAlignment: MainAxisAlignment.end, // Row안에서 가로축(x) 정렬
-                      children: [
-                        Icon(Icons.favorite),
-                        Text('4'),
-                      ],
-                    )
-                  ],
-                )
-              )
-            ]
-          )
-        )
+        body: ShopItem(),
       )
+    );
+  }
+}
+// 커스텀 위젯 만들기
+// stless + tab
+// class를 복사해서 새로운 class 만들고 싶으면 extends 키워드 쓰면 된다.
+// 복사하기 좋은 완성된 위젯 class가 StatelessWidget 이라는 것이고
+// 그걸 복사하면 커스텀 위젯 쉽게 만들 수 있다.
+// class 작명 extends StatelessWidget {}
+class ShopItem extends StatelessWidget {
+  const ShopItem({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      child: Text('안녕'),
     );
   }
 }
