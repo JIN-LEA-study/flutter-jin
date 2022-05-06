@@ -32,31 +32,19 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var a = 1;
-
+  var name = ['김영숙', '홍길동', '피자집'];
   @override
   Widget build(BuildContext context) {
 
     return MaterialApp(
-      // Flutter에서 앱 디자인 넣는 법 : 위젯 짜깁기
       home: Scaffold( // App을 상, 중, 하로 나눠준다.
-        floatingActionButton: FloatingActionButton(
-          child: Text(a.toString()), //a는 숫자니까 toString 작성
-          // (현재 버튼을 눌러도 변화가 없는 이유는 재렌더링이 안되고 있기 때문이다.-console에는 잘 나온다.)
-          onPressed: (){ // 버튼 눌렀을 때 코드 실행하려면 onPressed(){}
-            print(a);
-            // state 변경하려면 setState((){here})
-            setState((){
-              a++; // +1 해주세요
-            });
-          }, // 버튼 누르면 여기 코드를 실행한다.
-        ),
         appBar: AppBar(),
         body: ListView.builder(
           itemCount: 3,
           itemBuilder:(c, i){
             return ListTile(
               leading: Image.asset('profile.png'),
-              title: Text('홍길동'),
+              title: Text(name[i]),
             );
           }
         )
