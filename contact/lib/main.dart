@@ -14,14 +14,24 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 3;
+  var a = 1;
+  var total = 3;
   var name = ['김영숙', '홍길동', '피자집'];
   var like = [0, 0, 0];
+
+  // 부모 state를 자식이 수정하려면?
+  // 1. 수정함수 2. state 보내고 3. 등록하고 4. 사용
+  // 1. 부모안에 수정함수를 만든다. (state 조작하는 함수를 부모 위젯에 미리 만들어둡니다.)
+  addOne(){
+    setState((){
+    total++; // 어디서 addOne을 클릭할 때마다 total 변수에 + 1
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar( title : Text(total.toString()),),
         body: ListView.builder(
           itemCount: 3,
           itemBuilder:(c, i){
@@ -31,12 +41,10 @@ class _MyAppState extends State<MyApp> {
             );
           },
         ),
-        // 부모 -> 자식 state 전송 방법 1. 보내고 2. 등록하고 3. 사용
         floatingActionButton: FloatingActionButton(
               onPressed: (){
                 showDialog(context: context, builder: (context){
-                  return DialogUI(state : a, state2: 'melon');
-                  // 1. 자식위젯 (작명: 보낼 state)
+                  return DialogUI( addOne : addOne ); // 2. 부모 -> 자식 보내기 (자식 위젯에 그 함수를 전송합니다.)
                 });
               },
           ),
@@ -45,24 +53,22 @@ class _MyAppState extends State<MyApp> {
 }
 
 class DialogUI extends StatelessWidget {
-  DialogUI({Key? key, this.state, this.state2 }) : super(key: key);
-  final state;
-  final state2;
-  // state로 작명한 것을 line48, line49 두군데에 등록
-  // var state; -> 다음과 같이 작성시 다른 const를 삭제해야한다 귀찮으면 final을 쓰는데 다만 final은 최종이라 수정이 안된다.
-  // 부모가 보낸 state는 read-only 가 좋다. 그래서 final을 쓰는 것도 좋다.
-  // 2. 등록은 2곳에
+  DialogUI({Key? key, this.addOne }) : super(key: key);
+  final addOne;
+  // 3. 등록은 2곳에 (자식은 파라미터로 함수 들어올 수 있다고 등록합니다.)
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      child: SizedBox(
+      child: Container(
+        padding: EdgeInsets.all(20),
         width: 300,
         height: 300,
         child: Column(
           children: [
             TextField(),
-            TextButton(onPressed: (){}, child: Text(state2.toString())),
-            TextButton(onPressed: (){ Navigator.pop(context); }, child: Text('취소')) // 실행시 닫힘
+            TextButton(child: Text('완료'), onPressed: (){ addOne();} ), //
+            // 4. 수정 함수 호출 (완료버튼 누르면 addOne() 동작, total+1 실행)
+            TextButton(child: Text('취소'), onPressed: (){ Navigator.pop(context); })
           ],
         )
       )
