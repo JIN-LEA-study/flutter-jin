@@ -56,12 +56,14 @@ class _MyAppState extends State<MyApp> {
   // // 연락처가 본격적으로 필요할 때 실행해주는 것이 좋은 것 같다.
 
   // Dart는 타입을 엄격하게 지켜야 잘 동작하는 언어
+  // 초기 값이 있으면 타입이 알아서 생기기 때문에,
+  // 타입을 모두 지정할 필요는 없다.
   var total = 3;
   // int total = 3;
-  // 초기 값이 있으면 타입이 알아서 생기기 때문에, 타입을 이렇게 모두 지정할 필요는 없다.
   var name = []; // List<dynamics> 리스트인데 모든 타입 가능
   // List<Contact> name = []; // 변수만들때 미리 타입을 강제 지정할 수도 있음
   var like = [0, 0, 0];
+  // List<int> like = [0, 0, 0];
 
   addName(a){
     setState((){
@@ -90,7 +92,7 @@ class _MyAppState extends State<MyApp> {
           itemBuilder:(c, i){
             return ListTile(
               leading: Image.asset('assets/profile.png', width: 100,),
-              title: Text(name[i].givenName),
+              title: Text(name[i].givenName ?? '이름이없는놈'),
             );
           },
         ),
@@ -139,3 +141,10 @@ class DialogUI extends StatelessWidget {
     );
   }
 }
+
+// build 전 체크 사항
+// 1. 변수, 함수에 타입 지정을 잘 했는가
+// 2. null check - if문X => 삼항연산자나 ??를 쓴다.
+// null이 등장할 것 같은 곳은 한번씩 체크한다.
+
+// C:\"Program Files"\Android\"Android Studio"\jre\bin\keytool -genkey -v -keystore C:\Users\JYK\flutter_keys\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload
