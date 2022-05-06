@@ -14,14 +14,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var a = 1;
+
   var total = 3;
   var name = ['김영숙', '홍길동', '피자집']; // 부모위젯에 있는 state 자식위젯에서 수정하려고 한다.
   var like = [0, 0, 0];
 
-  addName(){
+  addName(a){
     setState((){
-      name.add('말숙');
+      name.add(a);
     }); // List에 자료추가하는 방법
   }
 
@@ -81,7 +81,7 @@ class DialogUI extends StatelessWidget {
             TextField( controller: inputData,), // 유저가 입력한 데이트럴 변수에 담는다 controller:
             TextButton(child: Text('완료'), onPressed: (){
               addOne();
-              addName();
+              addName('김씨');
             } ), //
             // 4. 수정 함수 호출 (완료버튼 누르면 addOne() 동작, total+1 실행)
             TextButton(
