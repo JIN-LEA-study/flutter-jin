@@ -66,7 +66,7 @@ class DialogUI extends StatelessWidget {
 
   // 3. 등록은 2곳에 (자식은 파라미터로 함수 들어올 수 있다고 등록)
   var inputData = TextEditingController();
-  var inputData2 = '';
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -81,8 +81,8 @@ class DialogUI extends StatelessWidget {
             TextField( controller: inputData,), // 유저가 입력한 데이트럴 변수에 담는다 controller:
             TextButton(child: Text('완료'), onPressed: (){
               addOne();
-              addName('김씨');
-            } ), //
+              addName(inputData.text);
+            } ),
             // 4. 수정 함수 호출 (완료버튼 누르면 addOne() 동작, total+1 실행)
             TextButton(
                 child: Text('취소'),
