@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 void main() {
   runApp(
@@ -22,6 +23,23 @@ class _MyAppState extends State<MyApp> {
     // await 붙으면 다음 줄 실행안하고 기다려준다. (async붙어 있어야 안에서 await 사용 가능, 임의 X, Future를 리턴하는 함수에만 붙일 수 있다.)
     if (status.isGranted) {
       print('허락됨'); // 허락하면 실행
+      var contacts = await ContactsService.getContacts();
+      print(contacts);
+      setState((){
+        name = contacts;
+      });
+
+      // // 성, 이름 , 풀네임 받아오기
+      // print(contacts[0].familyName); // 성
+      // print(contacts[0].givenName); // 이름
+      // print(contacts[0].displayName); // 풀네임
+
+      // // 폰에 연락처 추가하는 방법
+      // var newPerson = Contact(); // new Contact(); - new라는 키워드는 class에서 인스턴스를 뽑는 문법인데, (dart) new 생략가능
+      // newPerson.givenName = 'Minsu';
+      // newPerson.familyName = 'Kim';
+      // ContactsService.addContact(newPerson); // 휴대폰 연락처에 newPerson 정보가 들어간다.
+
     } else if (status.isDenied) {
       print('거절됨'); // 허락안하면/미선택이면 실행
       Permission.contacts.request(); // 허락해달라고 팝업띄우는 코드
@@ -37,8 +55,12 @@ class _MyAppState extends State<MyApp> {
   // // 처음 로드되자마자 권한요구하는 것보다
   // // 연락처가 본격적으로 필요할 때 실행해주는 것이 좋은 것 같다.
 
+  // Dart는 타입을 엄격하게 지켜야 잘 동작하는 언어
   var total = 3;
-  var name = ['김영숙', '홍길동', '피자집']; // 부모위젯에 있는 state 자식위젯에서 수정하려고 한다.
+  // int total = 3;
+  // 초기 값이 있으면 타입이 알아서 생기기 때문에, 타입을 이렇게 모두 지정할 필요는 없다.
+  var name = []; // List<dynamics> 리스트인데 모든 타입 가능
+  // List<Contact> name = []; // 변수만들때 미리 타입을 강제 지정할 수도 있음
   var like = [0, 0, 0];
 
   addName(a){
@@ -68,7 +90,7 @@ class _MyAppState extends State<MyApp> {
           itemBuilder:(c, i){
             return ListTile(
               leading: Image.asset('assets/profile.png', width: 100,),
-              title: Text(name[i]),
+              title: Text(name[i].givenName),
             );
           },
         ),
