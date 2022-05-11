@@ -29,7 +29,12 @@ class MyApp extends StatelessWidget {
             )
           ]
       ),
-      body: TextButton(onPressed: (){}, child: Text('안녕'),),
+      body: Theme(
+          data:ThemeData(
+            textTheme: // 이 스타일을 먼저 적용 (원칙) 나랑 가까운 스타일 먼저 적용하려 함
+          ),
+          child: Container() //얘부터는 // 얘의 자식부터는 모든 글자색이 달라졌으면 좋겠다.
+      ), // 레이아웃 중간에 ThemeData() 생성 가능
     );
   }
 }
