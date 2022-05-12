@@ -21,16 +21,29 @@ class MyApp extends StatefulWidget {
 
   @override
   State<MyApp> createState() => _MyAppState();
-} // 여기까지 5줄 무시
+}
 
 class _MyAppState extends State<MyApp> {
   var tab = 1;
-  var list = [1, 2, 3];
-  var map = {'name': 'john', 'age': 20};
-  // map['name']  // john이 나온다.
+  var data = [];  // 데이터 들어오는데 몇초 걸린다.
+
   getData() async {
     var result = await http.get(Uri.parse('https://codingapple1.github.io/app/data.json')); // 오래 걸리는 함수(전문용어로 Future)
+    // 여러가지 예외처리 필요
+    // - 서버가 다운되었거나
+    // - 요청 경로가 이상하거나
+    if (result.statusCode == 200) {  // 성공시 보통 200이 남는다, 실패시 4XX, 5XX
+
+    } else{  // 실패시
+
+    }
+
+    // Dio 패키지 설치하면 GET요청이 좀 더 짧아진다.
+
     var result2 = jsonDecode(result.body); // JSON->[],{} 변환해서 쓴다. (jsonDecode)
+    setState(() {
+      data = result2;
+    });
     print(result2[0]['likes']);
   }
 
@@ -55,7 +68,7 @@ class _MyAppState extends State<MyApp> {
           ]
       ),
       // body: [Text('홈페이지'),Text('샵페이지')][1],
-      body: [Home(), Text('샵페이지')][tab],
+      body: [Home(data: data), Text('샵페이지')][tab],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -75,26 +88,35 @@ class _MyAppState extends State<MyApp> {
 }
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  const Home({Key? key, this.data}) : super(key: key);
+  final data; // final, 부모가 보낸건 보통 수정하지 않는다.
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemCount: 3, itemBuilder: (c, i){ // ListView.builder() 자동으로 스크롤
-      return Container(
-        constraints: BoxConstraints(maxWidth: 600), // constraints 최대 폭을 줄 수 있다
-        padding: EdgeInsets.all(20),
-        width: double.infinity,
-        child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Image.network('https://codingapple1.github.io/kona.jpg'),
-                // Image.network('웹이미지주소') 웹에 올려진 이미지
-                Text('좋아요 100'),
-                Text('글쓴이'),
-                Text('내용'),
-              ],
-            ),
-      );
-        });
+    // print(data); // print()는 함수 안에서 쓰면 된다.
+
+    if (data.isNotEmpty){  // data에 뭐 들어있으면 보여달라
+      return ListView.builder(itemCount: 3, itemBuilder: (c, i){ // i는 1씩 증가하는 정수
+        return Container(
+          constraints: BoxConstraints(maxWidth: 600), // constraints 최대 폭을 줄 수 있다
+          padding: EdgeInsets.all(20),
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.network(data[i]['image']),
+              // Image.network('웹이미지주소') 웹에 올려진 이미지
+              Text('좋아요 100'),
+              Text('글쓴이'),
+              // Text(data[0]['content']),
+              Text(data[i]['content']),
+              // 데이터 들어오기도 전에 data[i]['content']하면 에러난다.
+            ],
+          ),
+        );
+      });
+    } else {
+      return Text('로딩중임'); // CircularProgressIndicator()
+   }
   }
 }
