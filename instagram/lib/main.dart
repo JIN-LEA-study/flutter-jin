@@ -8,7 +8,13 @@ void main() {
   runApp(
       MaterialApp(
           theme: style.theme,
-          home : MyApp(),
+          initialRoute: '/',  // 맨 처음 앱 로드시 어떤 routes를 보여줄지
+          routes: {
+            // '/': (context) => Text('첫페이지'),  // 경로 접속하면 보여줄 위젯
+            '/detail': (context) => Text('둘째페이지'),  // /detail 경로 접속하면 보여줄 위젯
+          },  // 페이지 많으면 routes 사용해도 된다.  // 페이지 많고 복잡한 앱에 좋을지도
+              // 라우터를 본격적으로 써야한다면 패키지 설치해서 쓰는게 낫습니다.
+          home : MyApp()
       )
   );
 }
@@ -63,10 +69,11 @@ class _MyAppState extends State<MyApp> {
             IconButton(
               icon: Icon(Icons.add_box_outlined),
               onPressed: () {
-                Navigator.push(context,  // MaterialApp에 들어있는 context를 넣어야 한다.
-                  // MaterialPageRoute(builder: (c) { return Text('새페이지'); })
-                  MaterialPageRoute(builder: (c) => Upload())  // {}와 return 생략해도 되는 Arrow Function
-                );
+                Navigator.pushNamed(context, '/detail');
+                // Navigator.push(context,  // MaterialApp에 들어있는 context를 넣어야 한다.
+                //   // MaterialPageRoute(builder: (c) { return Text('새페이지'); })
+                //   MaterialPageRoute(builder: (c) => Upload())  // {}와 return 생략해도 되는 Arrow Function
+                // );
               },
               iconSize: 30,
             )

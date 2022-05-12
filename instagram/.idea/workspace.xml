@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="스크롤 위치 파악 후 더보기 요청">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="상세 페이지 만들기 - Navigator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
@@ -134,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652350637990</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="상세 페이지 만들기 - Navigator">
+      <created>1652361139470</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652361139470</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +167,7 @@
     <MESSAGE value="데이터 출력 및 GET 요청 에러 예외처리" />
     <MESSAGE value="Future다루기 및 FutureBuilder()" />
     <MESSAGE value="스크롤 위치 파악 후 더보기 요청" />
-    <option name="LAST_COMMIT_MESSAGE" value="스크롤 위치 파악 후 더보기 요청" />
+    <MESSAGE value="상세 페이지 만들기 - Navigator" />
+    <option name="LAST_COMMIT_MESSAGE" value="상세 페이지 만들기 - Navigator" />
   </component>
 </project>
