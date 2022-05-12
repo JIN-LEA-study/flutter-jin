@@ -12,9 +12,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="image_picker 설치 및 이미지 보여주기 기능 추가">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="선택한 이미지와 텍스트를 게시물로 업로드하는 기능">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652370279121</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="선택한 이미지와 텍스트를 게시물로 업로드하는 기능">
+      <created>1652376352030</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652376352030</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -184,6 +193,7 @@
     <MESSAGE value="상세 페이지 만들기 - Navigator" />
     <MESSAGE value="Route 만들기" />
     <MESSAGE value="image_picker 설치 및 이미지 보여주기 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="image_picker 설치 및 이미지 보여주기 기능 추가" />
+    <MESSAGE value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
+    <option name="LAST_COMMIT_MESSAGE" value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
   </component>
 </project>
