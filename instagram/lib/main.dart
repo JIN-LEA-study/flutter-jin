@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'style.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
 // import 'style.dart' as style; 같이 작명가능 style.theme 이같은 방식으로 사용
 // 다른 파일에 있는 변수, 함수 쓰고 싶으면 import'파일경로'부터
 // import './style.dart'; - OK - './'는 현재 경로를 뜻한다.
@@ -13,11 +16,6 @@ void main() {
   );
 }
 
-// 동적인 UI 만드는 법
-// 1. state에 tab의 현재 상태 저장
-// 2. state에 따라 tab이 어떻게 보일지 작성
-// 3. 유저가 쉽게 state 조작할 수 있게 -> 누르면 state 바뀌는 버튼 만들기
-
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -27,9 +25,21 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   var tab = 1;
+  var list = [1, 2, 3];
+  var map = {'name': 'john', 'age': 20};
+  // map['name']  // john이 나온다.
+  getData() async {
+    var result = await http.get(Uri.parse('https://codingapple1.github.io/app/data.json')); // 오래 걸리는 함수(전문용어로 Future)
+    var result2 = jsonDecode(result.body); // JSON->[],{} 변환해서 쓴다. (jsonDecode)
+    print(result2[0]['likes']);
+  }
 
-  // state가 0이면, Text('홈')
-  // state가 1이면, Text('샵')
+  // 로드 되면 바로 GET 요청
+  @override
+  void initState() {
+    super.initState();
+    getData();
+  }
 
   @override
   Widget build(BuildContext context) {
