@@ -2,18 +2,13 @@ import 'package:flutter/material.dart';
 import 'style.dart' as style;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-// import 'package:flutter/rendering.dart';  // 스크롤 관련 유용한 함수  // 스크롤 다룰때 import 해두고 쓰는게 좋다.
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
 
 void main() {
   runApp(
       MaterialApp(
           theme: style.theme,
-          initialRoute: '/',  // 맨 처음 앱 로드시 어떤 routes를 보여줄지
-          routes: {
-            // '/': (context) => Text('첫페이지'),  // 경로 접속하면 보여줄 위젯
-            '/detail': (context) => Text('둘째페이지'),  // /detail 경로 접속하면 보여줄 위젯
-          },  // 페이지 많으면 routes 사용해도 된다.  // 페이지 많고 복잡한 앱에 좋을지도
-              // 라우터를 본격적으로 써야한다면 패키지 설치해서 쓰는게 낫습니다.
           home : MyApp()
       )
   );
@@ -29,6 +24,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var tab = 0;
   var data = [];
+  var userImage;  // 선택한 이미지를 위젯에 보여주기
 
   addData(a) {
     setState(() {
@@ -57,9 +53,6 @@ class _MyAppState extends State<MyApp> {
     getData();
   }
 
-  // 페이지 나누는 법
-  // 1. 탭 2. Navigator
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,12 +61,25 @@ class _MyAppState extends State<MyApp> {
           actions: [
             IconButton(
               icon: Icon(Icons.add_box_outlined),
-              onPressed: () {
-                Navigator.pushNamed(context, '/detail');
-                // Navigator.push(context,  // MaterialApp에 들어있는 context를 넣어야 한다.
-                //   // MaterialPageRoute(builder: (c) { return Text('새페이지'); })
-                //   MaterialPageRoute(builder: (c) => Upload())  // {}와 return 생략해도 되는 Arrow Function
-                // );
+              onPressed: () async {
+                var picker = ImagePicker();
+                var image = await picker.pickImage(source: ImageSource.gallery);  // 사진 선택화면 띄우는 법 (패키지 사용법일 뿐)
+                // var image = await picker.pickImage(source: ImageSource.camera);  // 카메라
+                // var image = await picker.pickMultiImage(source: ImageSource.gallery);  // 여러 이미지
+                // var video = await picker.pickVideo(source: ImageSource.gallery);  // 비디오
+
+                // userImage = File(image.path);  // 이대로 썼을 때 에러가 나는 이유는 image가 null일 수도 있기때 문에 미리 걱정해주는 것
+                if (image != null) {
+                  setState(() {
+                    userImage = File(image.path);
+                  });
+                }
+                // Image.file(userImage);  // 파일 경로로 이미지 띄우는 법
+
+                Navigator.push(context,  // MaterialApp에 들어있는 context를 넣어야 한다.
+                    // MaterialPageRoute(builder: (c) { return Text('새페이지'); })
+                  MaterialPageRoute(builder: (c) => Upload(userImage : userImage))  // 부모에서 전송
+                );
               },
               iconSize: 30,
             )
@@ -155,7 +161,9 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
 }
 
 class Upload extends StatelessWidget {
-  const Upload({Key? key}) : super(key: key);
+  const Upload({Key? key, this.userImage}) : super(key: key);  // 등록
+  final userImage;
+
   @override
   Widget build(BuildContext context) {  // 아래 context는 이 context 부모 데이터들이 담겨있다. 그 중에 MaterialApp도 있을 것이고
 
@@ -164,7 +172,9 @@ class Upload extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Image.file(userImage),  // 부모에 있던 state를 자식이 쓰려면 보내줘야 한다.
             Text('이미지업로드화면'),
+            TextField(),
             IconButton(
                 onPressed: (){
                   Navigator.pop(context);  // 이 context는 MaterialApp의 정보가 들어있으면 된다.
