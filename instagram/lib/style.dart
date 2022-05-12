@@ -15,7 +15,6 @@ var theme = ThemeData(
     actionsIconTheme: IconThemeData(color: Colors.black),
   ),
   textTheme: TextTheme(
-      bodyText2: TextStyle( color:Colors.red ), // 여기에 다양한 스타일 만들어 놓고 Theme.of() 이걸로 가져다 쓸 수도 있다.
-      bodyText1: TextStyle( color:Colors.blue ),
+      // bodyText2: TextStyle( color:Colors.red ), // 여기에 다양한 스타일 만들어 놓고 Theme.of() 이걸로 가져다 쓸 수도 있다.
   ),
 );

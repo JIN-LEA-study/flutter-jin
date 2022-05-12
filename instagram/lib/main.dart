@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
           ]
       ),
       // body: [Text('홈페이지'),Text('샵페이지')][1],
-      body: [Text('홈페이지'), Text('샵페이지')][tab],
+      body: [Home(), Text('샵페이지')][tab],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -61,5 +61,30 @@ class _MyAppState extends State<MyApp> {
         ]
       ),
     );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(itemCount: 3, itemBuilder: (c, i){ // ListView.builder() 자동으로 스크롤
+      return Container(
+        constraints: BoxConstraints(maxWidth: 600), // constraints 최대 폭을 줄 수 있다
+        padding: EdgeInsets.all(20),
+        width: double.infinity,
+        child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.network('https://codingapple1.github.io/kona.jpg'),
+                // Image.network('웹이미지주소') 웹에 올려진 이미지
+                Text('좋아요 100'),
+                Text('글쓴이'),
+                Text('내용'),
+              ],
+            ),
+      );
+        });
   }
 }
