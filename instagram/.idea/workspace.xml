@@ -12,12 +12,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="Route 만들기">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="image_picker 설치 및 이미지 보여주기 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652361644363</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="image_picker 설치 및 이미지 보여주기 기능 추가">
+      <created>1652370279121</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652370279121</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +183,7 @@
     <MESSAGE value="스크롤 위치 파악 후 더보기 요청" />
     <MESSAGE value="상세 페이지 만들기 - Navigator" />
     <MESSAGE value="Route 만들기" />
-    <option name="LAST_COMMIT_MESSAGE" value="Route 만들기" />
+    <MESSAGE value="image_picker 설치 및 이미지 보여주기 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="image_picker 설치 및 이미지 보여주기 기능 추가" />
   </component>
 </project>

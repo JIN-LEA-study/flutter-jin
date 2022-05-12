@@ -25,7 +25,29 @@ class _MyAppState extends State<MyApp> {
   var tab = 0;
   var data = [];
   var userImage;  // 선택한 이미지를 위젯에 보여주기
+  var userContent;
 
+  addMyData() {  // 발행 버튼 누르면 이 코드가 실행되어야 한다.  // MyApp 위젯에 있음
+    var myData = {
+      'id': data.length,  // 게시글의 unique한 id
+      'image': userImage,
+      'likes': 5,
+      'date': 'July 25',
+      'content': userContent,
+      'liked': false,
+      'user': 'John Kim'
+    };
+    setState(() {
+      // data.add(myData)  // add는 맨뒤에 추가가 된다.
+      data.insert(0, myData);  // 몇번째 항목에 추가할 지 결정할 수 있다.  // 여기선(0) 맨 앞에 추가 된다.
+    });
+  }
+
+  setUserContent(a){
+    setState(() {
+      userContent = a;
+    });
+  }
   addData(a) {
     setState(() {
       data.add(a);  // .add()하면 리스트 안에 자료 추가 가능
@@ -76,9 +98,11 @@ class _MyAppState extends State<MyApp> {
                 }
                 // Image.file(userImage);  // 파일 경로로 이미지 띄우는 법
 
-                Navigator.push(context,  // MaterialApp에 들어있는 context를 넣어야 한다.
-                    // MaterialPageRoute(builder: (c) { return Text('새페이지'); })
-                  MaterialPageRoute(builder: (c) => Upload(userImage : userImage))  // 부모에서 전송
+                Navigator.push(context,
+                  MaterialPageRoute(builder: (c) => Upload(
+                      userImage : userImage, setUserContent: setUserContent,
+                      addMyData : addMyData,
+                  ))  // 부모에서 전송
                 );
               },
               iconSize: 30,
@@ -146,7 +170,18 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Image.network(widget.data[i]['image']),
+                  // 1 == 1 ? '이거':'저거',  // 참일 때 이거, 거짓일 때 저거
+                  // 삼항연산자 문법 if문의 대용품
+                  // 조건식 ? 조건식이 참이면 실행할 코드 : 조건식이 거짓이면 실행할 코드
+                  // runtimeType : 왼쪽에 있는 타입을 출력하라.
+                  widget.data[i]['image'].runtimeType == String
+                      ? Image.network(widget.data[i]['image'])
+                      : Image.file(widget.data[i]['image']),
+                  // Image.network()에는 http부터 시작하는 이미지만 가능
+                  // 유저가 선택한 이미지는 _File타입
+                  // (에러) _File타입인데 왜 String 타입 자리에 집어넣었냐
+                  // 만약 이미지가 String타입이면 Image.network()
+                  // 아니면 Image.file()
                   Text('좋아요 ${widget.data[i]['likes']}'),
                   Text(widget.data[i]['date']),
                   Text(widget.data[i]['content']),
@@ -161,22 +196,31 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
 }
 
 class Upload extends StatelessWidget {
-  const Upload({Key? key, this.userImage}) : super(key: key);  // 등록
+  const Upload({Key? key, this.userImage, this.setUserContent, this.addMyData}) : super(key: key);  // 등록
   final userImage;
+  final setUserContent;
+  final addMyData;
 
   @override
   Widget build(BuildContext context) {  // 아래 context는 이 context 부모 데이터들이 담겨있다. 그 중에 MaterialApp도 있을 것이고
 
     return Scaffold(
-        appBar: AppBar(),
+        resizeToAvoidBottomInset: false,
+        appBar: AppBar( actions: [
+          IconButton(onPressed: () {
+            addMyData();
+          }, icon: Icon(Icons.send))
+        ]),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.file(userImage),  // 부모에 있던 state를 자식이 쓰려면 보내줘야 한다.
             Text('이미지업로드화면'),
-            TextField(),
+            TextField(onChanged: (text) {  // 유저가 입력한 글을 뜻한다.
+              setUserContent(text);  // TextField()에 입력값이 변할 때마다 onChanged 안의 함수가 실행된다.
+            },),
             IconButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.pop(context);  // 이 context는 MaterialApp의 정보가 들어있으면 된다.
                 },
                 icon: Icon(Icons.close),
@@ -184,6 +228,5 @@ class Upload extends StatelessWidget {
           ],
         )
     );
-
   }
 }
