@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 // 이 변수는 다른 파일로 안들어갔으면 좋겠다 - 변수를 다른 파일에 쓰기 싫으면 _변수명_함수명_클래스명
 // 왼쪽 언더바를 사용하면 이 변수는 다른 파일에서 절대 쓸 수 없는 변수가 된다.
 
-var theme = ThemeData( // ThemeData()안의 버튼 스타일은
+var theme = ThemeData(
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    selectedItemColor: Colors.black,
+  ),
   appBarTheme: AppBarTheme(
     color: Colors.white,
     elevation: 1, // 그림자 크기

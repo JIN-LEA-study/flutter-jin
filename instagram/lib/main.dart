@@ -29,8 +29,16 @@ class MyApp extends StatelessWidget {
             )
           ]
       ),
-      body: Text('안녕', style: Theme.of(context).textTheme.bodyText1,) // ThemeData() 찾아서 거기 있던 textTheme>bodyText2 가져오기
-      // 원하는 ThemeData안의 내용 불러오기
+      // body: Text('안녕', style: Theme.of(context).textTheme.bodyText1,) // ThemeData() 찾아서 거기 있던 textTheme>bodyText2 가져오기  // 원하는 ThemeData안의 내용 불러오기
+      body: Text('안녕'),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items:[
+          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label:'홈'),
+          BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label:'샵'),
+        ]
+      ),
     );
   }
 }
