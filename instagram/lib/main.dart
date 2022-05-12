@@ -28,15 +28,15 @@ class _MyAppState extends State<MyApp> {
   var data = [];  // 데이터 들어오는데 몇초 걸린다.
 
   getData() async {
-    var result = await http.get(Uri.parse('https://codingapple1.github.io/app/data.json')); // 오래 걸리는 함수(전문용어로 Future)
+    var result = await http.get(Uri.parse('https://codingapple1.github.io/app/data.json')); // 오래 걸리는 함수(전문용어로 Future, Future를 뱉는 함수)
     // 여러가지 예외처리 필요
     // - 서버가 다운되었거나
     // - 요청 경로가 이상하거나
-    if (result.statusCode == 200) {  // 성공시 보통 200이 남는다, 실패시 4XX, 5XX
-
-    } else{  // 실패시
-
-    }
+    // if (result.statusCode == 200) {  // 성공시 보통 200이 남는다, 실패시 4XX, 5XX
+    //
+    // } else{  // 실패시
+    //
+    // }
 
     // Dio 패키지 설치하면 GET요청이 좀 더 짧아진다.
 
@@ -67,8 +67,19 @@ class _MyAppState extends State<MyApp> {
             )
           ]
       ),
-      // body: [Text('홈페이지'),Text('샵페이지')][1],
-      body: [Home(data: data), Text('샵페이지')][tab],
+      // future: 에 입력한 Future가 완료되면, builder: 안의 위젯을 보여준다.
+      // FutureBuilder위젯: Future 변수가 실제 데이터로 변할 때 내부 코드 1회 실행해주는 위젯
+      // - 데이터가 자주 추가되면 쓰기 불편하다.
+      // - 데이터가 나중에 추가 안되는 경우 유용
+      body: [FutureBuilder(
+          future: http.get('어쩌구'),
+          builder: (context, snapshot){
+            if (snapshot.hasData) {
+              return Text('post에 데이터 있으면 보여줄 위젯')
+            }
+            return Text('post에 데이터 없으면 보여줄 위젯')
+          },
+      ), Text('샵페이지')][tab],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,

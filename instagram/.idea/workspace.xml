@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="http 패키지 추가 및 서버 GET 요청">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="데이터 출력 및 GET 요청 에러 예외처리">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
@@ -105,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652338803814</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="데이터 출력 및 GET 요청 에러 예외처리">
+      <created>1652340346145</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652340346145</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +135,7 @@
     <MESSAGE value="onTap이용하여 동적인 UI 생성" />
     <MESSAGE value="shop 페이지 레이아웃 구현" />
     <MESSAGE value="http 패키지 추가 및 서버 GET 요청" />
-    <option name="LAST_COMMIT_MESSAGE" value="http 패키지 추가 및 서버 GET 요청" />
+    <MESSAGE value="데이터 출력 및 GET 요청 에러 예외처리" />
+    <option name="LAST_COMMIT_MESSAGE" value="데이터 출력 및 GET 요청 에러 예외처리" />
   </component>
 </project>
