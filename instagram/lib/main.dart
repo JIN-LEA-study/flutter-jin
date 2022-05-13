@@ -201,8 +201,13 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
                           PageRouteBuilder(  // 페이지 전환 커스텀 애니메이션  // 2. PageRouteBuilder
                             pageBuilder: (c, a1, a2) => Profile(),  // 기본 파라미터 3개정도 채운다. 쓸데는 없는데, 채워야 한다.
                             transitionsBuilder: (c, a1, a2, child) =>  // transitionsBuilder: () => 애니메이션용 위젯()  // 파라미터 4개를 입력하고 애니메이션을 return
-                                FadeTransition(opacity: a1, child: child),
-                            transitionDuration: Duration(milliseconds : 500),
+                            SlideTransition(  // Slide Animation
+                              position: Tween(
+                                begin: Offset(-1.0, 0.0),  // 시작 좌표  // 페이지의 X축 위치 (-1.0, 0.0 => 왼쪽에서 오른쪽으로) (1.0, 0.0 => 오른쪽에서 왼쪽으로)
+                                end: Offset(0.0, 0.0),  // 최종 좌표
+                              ).animate(a1),
+                              child: child,
+                            )
                             // 파라미터 설명
                             // 1. c => context (쓸데없음)
                             // 2. a1 => animation object 0에서 1로 증가하는 애니메이션 숫자 (새로운 페이지에 씀)  // 페이지 전환 시작시 0, 페이지 전환 끝나면 1.
