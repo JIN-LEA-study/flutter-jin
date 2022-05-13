@@ -13,7 +13,17 @@ import 'store.dart';
 import 'upload.dart';
 import 'notification.dart';
 
-void main() {
+// firebase
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
+void main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(
       MultiProvider(  // store 여러개면 MultiProvider로 등록해야 한다.
           providers: [
