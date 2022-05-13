@@ -5,6 +5,7 @@ import 'dart:convert';  // convert는 유용한 함수 몇개 들어있는 기�
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter/cupertino.dart';
 
 void main() {
   runApp(
@@ -56,7 +57,7 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  setUserContent(a){
+  setUserContent(a) {
     setState(() {
       userContent = a;
     });
@@ -165,7 +166,7 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
   void initState() {
     super.initState();  // 스크롤바 높이 측정하려면 - 리스너 부착하기
     scroll.addListener(() {  // scroll 변수가 변할 때마다 addlistener로 특정 코드 실행  // 필요없어지면 제거하는 것도 성능상 좋다.
-      if (scroll.position.pixels == scroll.position.maxScrollExtent){
+      if (scroll.position.pixels == scroll.position.maxScrollExtent) {
         // print('같음');
         getMore();
       }
@@ -186,18 +187,38 @@ class _HomeState extends State<Home> {  // 사용은 두번째 class에
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // 1 == 1 ? '이거':'저거',  // 참일 때 이거, 거짓일 때 저거
-                  // 삼항연산자 문법 if문의 대용품
-                  // 조건식 ? 조건식이 참이면 실행할 코드 : 조건식이 거짓이면 실행할 코드
-                  // runtimeType : 왼쪽에 있는 타입을 출력하라.
+
                   widget.data[i]['image'].runtimeType == String
                       ? Image.network(widget.data[i]['image'])
                       : Image.file(widget.data[i]['image']),
-                  // Image.network()에는 http부터 시작하는 이미지만 가능
-                  // 유저가 선택한 이미지는 _File타입
-                  // (에러) _File타입인데 왜 String 타입 자리에 집어넣었냐
-                  // 만약 이미지가 String타입이면 Image.network()
-                  // 아니면 Image.file()
+
+                  GestureDetector(
+                    child: Text(widget.data[i]['user']),
+                    onTap: () {
+                      Navigator.push(context,
+                          // MaterialPageRoute(builder: (c) => Text('위젯')));
+                          // CupertinoPageRoute(builder: (c) => Profile()));  // Slide  // 페이지 전환 커스텀 애니메이션  // 1. 쉬운 방법
+                          PageRouteBuilder(  // 페이지 전환 커스텀 애니메이션  // 2. PageRouteBuilder
+                            pageBuilder: (c, a1, a2) => Profile(),  // 기본 파라미터 3개정도 채운다. 쓸데는 없는데, 채워야 한다.
+                            transitionsBuilder: (c, a1, a2, child) =>  // transitionsBuilder: () => 애니메이션용 위젯()  // 파라미터 4개를 입력하고 애니메이션을 return
+                                FadeTransition(opacity: a1, child: child),
+                            transitionDuration: Duration(milliseconds : 500),
+                            // 파라미터 설명
+                            // 1. c => context (쓸데없음)
+                            // 2. a1 => animation object 0에서 1로 증가하는 애니메이션 숫자 (새로운 페이지에 씀)  // 페이지 전환 시작시 0, 페이지 전환 끝나면 1.
+                            // 3. a2 => 0에서 1로 증가하는 애니메이션 숫자 (기존에 보이던 페이지에 씀)  // 페이지 전환이 얼마나 되었는지 0~1로 알려준다.
+                            // 4. child => 현재 보여주는 위젯을 뜻한다.
+                          )
+                      );  // slide
+                      },
+                    // onTap: () { 한 번 누를시 실행할 코드 }
+                    // onDoubleTap: () { 더블탭시 실행할 코드 }
+                    // onLongPress: () { 길게 누를시 실행할 코드 }
+                    // onScaleStart: () { 줌인시 실행할 코드 }
+                    // onHorizontalDragStart: () { 수평으로 드래그시 실행할 코드 }
+                  ),
+
+                  // Text(widget.data[i]['user']),  // 이거 누르면 Navigator.push() 되도록 but Text 위젯 안에는 onPressed가 안된다.
                   Text('좋아요 ${widget.data[i]['likes']}'),
                   Text(widget.data[i]['date']),
                   Text(widget.data[i]['content']),
@@ -243,6 +264,18 @@ class Upload extends StatelessWidget {
             ),
           ],
         )
+    );
+  }
+}
+
+class Profile extends StatelessWidget {
+  const Profile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(),
+      body: Text('프로필페이지'),
     );
   }
 }

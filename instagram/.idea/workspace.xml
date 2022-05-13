@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="shared preferences 사용하여 DB없이 데이터 저장">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
@@ -172,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652377498325</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="shared preferences 사용하여 DB없이 데이터 저장">
+      <created>1652407315545</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652407315545</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +210,7 @@
     <MESSAGE value="image_picker 설치 및 이미지 보여주기 기능 추가" />
     <MESSAGE value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
     <MESSAGE value="shared preferences 설치" />
-    <option name="LAST_COMMIT_MESSAGE" value="shared preferences 설치" />
+    <MESSAGE value="shared preferences 사용하여 DB없이 데이터 저장" />
+    <option name="LAST_COMMIT_MESSAGE" value="shared preferences 사용하여 DB없이 데이터 저장" />
   </component>
 </project>
