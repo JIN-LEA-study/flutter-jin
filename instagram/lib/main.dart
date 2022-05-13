@@ -75,6 +75,7 @@ class _MyAppState extends State<MyApp> {
       userContent = a;
     });
   }
+
   addData(a) {
     setState(() {
       data.add(a);  // .add()하면 리스트 안에 자료 추가 가능
@@ -103,6 +104,7 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+    initNotification();
     saveData();
     getData();
   }
@@ -110,6 +112,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: FloatingActionButton(child: Text('+'), onPressed: () {
+          showNotification();
+          },
+        ),
       appBar: AppBar(
           title: Text('Instagram'),
           actions: [
