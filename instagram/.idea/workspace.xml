@@ -12,11 +12,9 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="선택한 이미지와 텍스트를 게시물로 업로드하는 기능">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +31,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="291b2W3Xbhaun4gCHHTPJwFj7nS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652376352030</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="shared preferences 설치">
+      <created>1652377498324</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652377498325</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -194,6 +202,7 @@
     <MESSAGE value="Route 만들기" />
     <MESSAGE value="image_picker 설치 및 이미지 보여주기 기능 추가" />
     <MESSAGE value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
-    <option name="LAST_COMMIT_MESSAGE" value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
+    <MESSAGE value="shared preferences 설치" />
+    <option name="LAST_COMMIT_MESSAGE" value="shared preferences 설치" />
   </component>
 </project>

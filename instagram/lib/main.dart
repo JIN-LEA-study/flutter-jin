@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'style.dart' as style;
 import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'dart:convert';  // convert는 유용한 함수 몇개 들어있는 기본 패키지
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(
@@ -26,6 +27,18 @@ class _MyAppState extends State<MyApp> {
   var data = [];
   var userImage;  // 선택한 이미지를 위젯에 보여주기
   var userContent;
+
+  saveData() async {
+    var storage = await SharedPreferences.getInstance();  // 저장 공간 오픈 하는 방법
+    // storage.setString('name', 'john');  // (유저가 삭제하지 않는 이상) 반영구적으로 보관 완료
+    // storage.remove('name');  // 데이터 삭제
+    // var result = storage.getString('name');  // 데이터 꺼내는 함수 getString() getBool() getInt() getDouble() getStringList()
+    var map = {'age' : 20};
+    storage.setString('map', jsonEncode(map));  // Map저장 함수는 없다. JSON으로 바꿔서 저장해야 한다.
+    var result3 = storage.getString('map') ?? '없는데요';  // JSON임(문자임)  // null체크를 해줘야 에러가 뜨지 않는다.
+    print(jsonDecode(result3)['age']);  // JSON -> Map 변환은 jsonDecode(map자료)  // jsonDecode()안엔 문자 넣기
+    // print(result);
+  }
 
   addMyData() {  // 발행 버튼 누르면 이 코드가 실행되어야 한다.  // MyApp 위젯에 있음
     var myData = {
@@ -67,11 +80,14 @@ class _MyAppState extends State<MyApp> {
       data = result2;
     });
   }
-
+  // 데이터 보존 방법
+  // 1. 서버로 보내서 DB에 저장 - 중요한 것
+  // 2. 폰 메모리 카드에 저장 (shared preferences 이용) - 덜 중요한 것 (웹브라우저로 치면 localStorage와 똑같은 곳임 )
   // 로드 되면 바로 GET 요청
   @override
   void initState() {
     super.initState();
+    saveData();
     getData();
   }
 
