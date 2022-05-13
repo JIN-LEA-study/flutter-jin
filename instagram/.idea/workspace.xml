@@ -12,8 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="store 추가 생성 및 GET 요청">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="GridView, CustomScrollView로 프로필 페이지 만들기">
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652419467796</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="GridView, CustomScrollView로 프로필 페이지 만들기">
+      <created>1652423446354</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1652423446354</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,6 +267,7 @@
     <MESSAGE value="provider를 사용한 상태 관리 기능 추가" />
     <MESSAGE value="팔로우 기능 추가" />
     <MESSAGE value="store 추가 생성 및 GET 요청" />
-    <option name="LAST_COMMIT_MESSAGE" value="store 추가 생성 및 GET 요청" />
+    <MESSAGE value="GridView, CustomScrollView로 프로필 페이지 만들기" />
+    <option name="LAST_COMMIT_MESSAGE" value="GridView, CustomScrollView로 프로필 페이지 만들기" />
   </component>
 </project>
