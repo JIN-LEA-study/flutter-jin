@@ -10,9 +10,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-      MaterialApp(
-          theme: style.theme,
-          home : MyApp()
+      ChangeNotifierProvider(  // MaterialApp() 자식 위젯들은 전부 Store1에 있던 state 사용 가능하다.
+          create: (c) => Store1(),
+          child: MaterialApp(
+              theme: style.theme,
+              home: MyApp()
+          )
       )
   );
 }
@@ -274,14 +277,37 @@ class Upload extends StatelessWidget {
   }
 }
 
+class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 메뉴얼이 필요함
+  var name = 'john kim';  // 이제 모든 위젯에서 이거 직접 사용 가능
+  changeName() {  // 버튼을 누르면 store의 state를 'john park'으로 변경해보자.  // 메뉴얼
+    name = 'john park';
+    notifyListeners();  // 재렌더링 하라.
+  }
+}
+// Provider 사용법
+// 1. store 만들기
+// 2. store 쓸 위젯들 등록
+
+// Provider 사용법 (Profile에서 MyApp의 state 쓰려면)
+// 1. state 보관함 (store) 만들기
+// 2. store 원하는 위젯 등록하기 - 이 state 쓰고 싶은 위젯들을 전부 ChangeNotifieProvider()로 감싸야 한다.
+//    모든 위젯들이 사용할거면 MaterialApp() 을 감싸면 된다.
+// 3. store에 있던 state를 사용하고 싶으면 context.watch<store명>() 원하는 것 점찍어서 쓰면 된다. Text(context.watch<Store1>().name)
+
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Text('프로필페이지'),
+      appBar: AppBar(title: Text(context.watch<Store1>().name),),
+      body: Column(
+        children: [
+          ElevatedButton(onPressed: () {
+            context.read<Store1>().changeName();
+          }, child: Text('버튼'))
+        ],
+      )
     );
   }
 }
