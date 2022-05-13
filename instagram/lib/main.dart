@@ -279,11 +279,32 @@ class Upload extends StatelessWidget {
 
 class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 메뉴얼이 필요함
   var name = 'john kim';  // 이제 모든 위젯에서 이거 직접 사용 가능
+  var follower = 0;
+  var friend = false;  // 현재 친구인지 아닌지
+
+  addFollower(){  // 친구여부 == false면 +1 / 친구여부 == true면 -1
+    if (friend == false) {
+      follower++;
+      friend = true;
+    } else {
+      follower--;
+      friend = false;
+    }
+    notifyListeners();
+  }
+
   changeName() {  // 버튼을 누르면 store의 state를 'john park'으로 변경해보자.  // 메뉴얼
     name = 'john park';
     notifyListeners();  // 재렌더링 하라.
   }
 }
+
+// store는 여러개 만들어도 상관없다.
+// class Store2 extends ChangeNotifier {
+//   var follower = 0;
+//   follower 변경함수들~~
+// }
+
 // Provider 사용법
 // 1. store 만들기
 // 2. store 쓸 위젯들 등록
@@ -301,11 +322,18 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(context.watch<Store1>().name),),
-      body: Column(
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          ElevatedButton(onPressed: () {
-            context.read<Store1>().changeName();
-          }, child: Text('버튼'))
+          CircleAvatar(  // 이미지를 동그랗게 넣고 싶으면 CircleAvatar()
+            radius: 30,
+            backgroundColor: Colors.grey,
+            // backgroundImage: ,
+          ),
+          Text('팔로워 ${context.watch<Store1>().follower}명'),
+          ElevatedButton(onPressed: () {  // 버튼을 누르면 위에 있는 state 수정 방법을 꺼내 쓰고 싶다.
+            context.read<Store1>().addFollower();  // 함수 이름 갖다 쓴다.
+          }, child: Text('팔로우'))
         ],
       )
     );

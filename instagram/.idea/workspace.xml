@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="provider 패키지 설치">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="provider를 사용한 상태 관리 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
@@ -200,7 +200,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652411837803</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="provider를 사용한 상태 관리 기능 추가">
+      <created>1652414426426</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1652414426426</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -235,6 +242,7 @@
     <MESSAGE value="fade-in 애니메이션 추가" />
     <MESSAGE value="Slide 애니메이션 추가" />
     <MESSAGE value="provider 패키지 설치" />
-    <option name="LAST_COMMIT_MESSAGE" value="provider 패키지 설치" />
+    <MESSAGE value="provider를 사용한 상태 관리 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="provider를 사용한 상태 관리 기능 추가" />
   </component>
 </project>
