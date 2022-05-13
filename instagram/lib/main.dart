@@ -104,7 +104,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initNotification();
+    // context;  // initState에서 자유롭게 갖다 쓸 수 있다.
+    initNotification(context);  // 1. context 변수를 전송한다. (변수 전송 -> notification.dart)
     saveData();
     getData();
   }

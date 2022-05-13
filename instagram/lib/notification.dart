@@ -5,7 +5,7 @@ final notifications = FlutterLocalNotificationsPlugin();
 
 // 앱로드시 1회 실행 필요
 // 1. 앱로드시 실행할 기본 설정
-initNotification() async {
+initNotification(context) async {  // 2. context 변수 등록한다.
 
   // android/app/src/main/res/drawable 폴더에 알림에 띄울 아이콘용 이미지를 추가
   // 안드로이드용 아이콘 파일 이름
@@ -26,7 +26,14 @@ initNotification() async {
   await notifications.initialize(
     initializationSettings,
     // 알림 누를 때 함수 실행하고 싶으면
-    // onSelectNotification: 함수명 추가
+    onSelectNotification: (payload) {  // payload 쓰면 약간의 버그같은게 있어서 쓰지 말길 바람.
+      Navigator.push(
+          context,  // 3. context 변수 사용한다. (함수 파라미터)
+          MaterialPageRoute(
+              builder: (context) => Text('새로운 페이지')
+          ),
+      );
+    }
   );
 }
 
@@ -52,6 +59,8 @@ showNotification() async {
       1,  // 개별 알림 ID 숫자
       '제목1',
       '내용1',
-      NotificationDetails(android: androidDetails, iOS: iosDetails)
+      NotificationDetails(android: androidDetails, iOS: iosDetails),
+      payload: '부가정보, 알림에 몰래 정보 심어 놓을 수 있다.'
+      // payload 쓰지 말고 몰래 정보 심어놓기 제일 좋은 곳은 shared_preferences
   );
 }
