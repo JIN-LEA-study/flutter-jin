@@ -12,10 +12,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="firebase settings">
-      <change afterPath="$PROJECT_DIR$/lib/shop.dart" afterDir="false" />
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="firestore 데이터 저장 및 불러오기">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/shop.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/shop.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,9 +34,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
-  </component>
   <component name="ProjectId" id="291b2W3Xbhaun4gCHHTPJwFj7nS" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,6 +50,9 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.11148274" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
@@ -292,7 +293,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652435459127</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="firestore 데이터 저장 및 불러오기">
+      <created>1652439215515</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1652439215515</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -308,7 +316,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="http 패키지 추가 및 서버 GET 요청" />
     <MESSAGE value="데이터 출력 및 GET 요청 에러 예외처리" />
     <MESSAGE value="Future다루기 및 FutureBuilder()" />
     <MESSAGE value="스크롤 위치 파악 후 더보기 요청" />
@@ -333,6 +340,7 @@
     <MESSAGE value="주기적으로 알림 띄우는 기능 추가" />
     <MESSAGE value="firebase 패키지 설치" />
     <MESSAGE value="firebase settings" />
-    <option name="LAST_COMMIT_MESSAGE" value="firebase settings" />
+    <MESSAGE value="firestore 데이터 저장 및 불러오기" />
+    <option name="LAST_COMMIT_MESSAGE" value="firestore 데이터 저장 및 불러오기" />
   </component>
 </project>
