@@ -12,8 +12,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="GridView, CustomScrollView로 프로필 페이지 만들기">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="프로필 페이지 - Grid 사용하여 유저 사진 보여주기">
+      <change afterPath="$PROJECT_DIR$/lib/home.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/profile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/store.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/upload.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/style.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/style.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -229,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652423446354</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="프로필 페이지 - Grid 사용하여 유저 사진 보여주기">
+      <created>1652423859282</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1652423859283</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +281,7 @@
     <MESSAGE value="팔로우 기능 추가" />
     <MESSAGE value="store 추가 생성 및 GET 요청" />
     <MESSAGE value="GridView, CustomScrollView로 프로필 페이지 만들기" />
-    <option name="LAST_COMMIT_MESSAGE" value="GridView, CustomScrollView로 프로필 페이지 만들기" />
+    <MESSAGE value="프로필 페이지 - Grid 사용하여 유저 사진 보여주기" />
+    <option name="LAST_COMMIT_MESSAGE" value="프로필 페이지 - Grid 사용하여 유저 사진 보여주기" />
   </component>
 </project>

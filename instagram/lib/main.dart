@@ -5,8 +5,12 @@ import 'dart:convert';  // convert는 유용한 함수 몇개 들어있는 기�
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
+
+// lib
+import 'home.dart';
+import 'store.dart';
+import 'upload.dart';
 
 void main() {
   runApp(
@@ -45,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     var map = {'age' : 20};
     storage.setString('map', jsonEncode(map));  // Map저장 함수는 없다. JSON으로 바꿔서 저장해야 한다.
     var result3 = storage.getString('map') ?? '없는데요';  // JSON임(문자임)  // null체크를 해줘야 에러가 뜨지 않는다.
-    print(jsonDecode(result3)['age']);  // JSON -> Map 변환은 jsonDecode(map자료)  // jsonDecode()안엔 문자 넣기
+    // print(jsonDecode(result3)['age']);  // JSON -> Map 변환은 jsonDecode(map자료)  // jsonDecode()안엔 문자 넣기
     // print(result);
   }
 
@@ -89,10 +93,12 @@ class _MyAppState extends State<MyApp> {
       data = result2;
     });
   }
+
   // 데이터 보존 방법
   // 1. 서버로 보내서 DB에 저장 - 중요한 것
   // 2. 폰 메모리 카드에 저장 (shared preferences 이용) - 덜 중요한 것 (웹브라우저로 치면 localStorage와 똑같은 곳임 )
   // 로드 되면 바로 GET 요청
+
   @override
   void initState() {
     super.initState();
@@ -148,233 +154,6 @@ class _MyAppState extends State<MyApp> {
           BottomNavigationBarItem(icon: Icon(Icons.shopping_bag_outlined), label:'샵'),
         ]
       ),
-    );
-  }
-}
-
-class Home extends StatefulWidget {  // 스크롤 바 높이 측정하려면, 우선 ListView담은 곳이 StatefulWidget이어야 한다. 전구이용해서 변경한다.
-  const Home({Key? key, this.data, this.addData}) : super(key: key);  // 부모가 보낸 state 등록은 첫번째 class에
-  final data;
-  final addData;
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {  // 사용은 두번째 class에
-  var scroll = ScrollController();  // 위치 측정은 스크롤 움직일 때마다 해야한다.(바닥인지 계속 체크해야)
-
-  getMore() async {
-    var result = await http.get(Uri.parse('https://codingapple1.github.io/app/more1.json'));
-    var result2 = jsonDecode(result.body);
-    widget.addData(result2);
-  }
-
-  @override
-  void initState() {
-    super.initState();  // 스크롤바 높이 측정하려면 - 리스너 부착하기
-    scroll.addListener(() {  // scroll 변수가 변할 때마다 addlistener로 특정 코드 실행  // 필요없어지면 제거하는 것도 성능상 좋다.
-      if (scroll.position.pixels == scroll.position.maxScrollExtent) {
-        // print('같음');
-        getMore();
-      }
-      // print(scroll.position.maxScrollExtent);  // 스크롤바 최대 내릴 수 있는 높이
-      // print(scroll.position.userScrollDirection);  // 스크롤 되는 방향 (ScrollDirection.forward, ScrollDirection.reverse)
-   });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // print(widget.addData);
-    if (widget.data.isNotEmpty) {  // 첫 class안에 있던 변수 사용은 widget.변수명
-      return ListView.builder(itemCount: widget.data.length, controller: scroll, itemBuilder: (c, i) {  // 유저가 얼마나 스크롤 했는지 정보가 scroll 변수에 저장된다.
-            return Container(
-              constraints: BoxConstraints(maxWidth: 600),
-              padding: EdgeInsets.all(20),
-              width: double.infinity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-
-                  widget.data[i]['image'].runtimeType == String
-                      ? Image.network(widget.data[i]['image'])
-                      : Image.file(widget.data[i]['image']),
-
-                  GestureDetector(
-                    child: Text(widget.data[i]['user']),
-                    onTap: () {
-                      Navigator.push(context,
-                          // MaterialPageRoute(builder: (c) => Text('위젯')));
-                          // CupertinoPageRoute(builder: (c) => Profile()));  // Slide  // 페이지 전환 커스텀 애니메이션  // 1. 쉬운 방법
-                          PageRouteBuilder(  // 페이지 전환 커스텀 애니메이션  // 2. PageRouteBuilder
-                            pageBuilder: (c, a1, a2) => Profile(),  // 기본 파라미터 3개정도 채운다. 쓸데는 없는데, 채워야 한다.
-                            transitionsBuilder: (c, a1, a2, child) =>  // transitionsBuilder: () => 애니메이션용 위젯()  // 파라미터 4개를 입력하고 애니메이션을 return
-                            SlideTransition(  // Slide Animation
-                              position: Tween(
-                                begin: Offset(-1.0, 0.0),  // 시작 좌표  // 페이지의 X축 위치 (-1.0, 0.0 => 왼쪽에서 오른쪽으로) (1.0, 0.0 => 오른쪽에서 왼쪽으로)
-                                end: Offset(0.0, 0.0),  // 최종 좌표
-                              ).animate(a1),
-                              child: child,
-                            )
-                            // 파라미터 설명
-                            // 1. c => context (쓸데없음)
-                            // 2. a1 => animation object 0에서 1로 증가하는 애니메이션 숫자 (새로운 페이지에 씀)  // 페이지 전환 시작시 0, 페이지 전환 끝나면 1.
-                            // 3. a2 => 0에서 1로 증가하는 애니메이션 숫자 (기존에 보이던 페이지에 씀)  // 페이지 전환이 얼마나 되었는지 0~1로 알려준다.
-                            // 4. child => 현재 보여주는 위젯을 뜻한다.
-                          )
-                      );  // slide
-                      },
-                    // onTap: () { 한 번 누를시 실행할 코드 }
-                    // onDoubleTap: () { 더블탭시 실행할 코드 }
-                    // onLongPress: () { 길게 누를시 실행할 코드 }
-                    // onScaleStart: () { 줌인시 실행할 코드 }
-                    // onHorizontalDragStart: () { 수평으로 드래그시 실행할 코드 }
-                  ),
-
-                  // Text(widget.data[i]['user']),  // 이거 누르면 Navigator.push() 되도록 but Text 위젯 안에는 onPressed가 안된다.
-                  Text('좋아요 ${widget.data[i]['likes']}'),
-                  Text(widget.data[i]['date']),
-                  Text(widget.data[i]['content']),
-                ],
-              ),
-            );
-          });
-    } else {
-      return CircularProgressIndicator();
-    }
-  }
-}
-
-class Upload extends StatelessWidget {
-  const Upload({Key? key, this.userImage, this.setUserContent, this.addMyData}) : super(key: key);  // 등록
-  final userImage;
-  final setUserContent;
-  final addMyData;
-
-  @override
-  Widget build(BuildContext context) {  // 아래 context는 이 context 부모 데이터들이 담겨있다. 그 중에 MaterialApp도 있을 것이고
-
-    return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar( actions: [
-          IconButton(onPressed: () {
-            addMyData();
-          }, icon: Icon(Icons.send))
-        ]),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.file(userImage),  // 부모에 있던 state를 자식이 쓰려면 보내줘야 한다.
-            Text('이미지업로드화면'),
-            TextField(onChanged: (text) {  // 유저가 입력한 글을 뜻한다.
-              setUserContent(text);  // TextField()에 입력값이 변할 때마다 onChanged 안의 함수가 실행된다.
-            },),
-            IconButton(
-                onPressed: () {
-                  Navigator.pop(context);  // 이 context는 MaterialApp의 정보가 들어있으면 된다.
-                },
-                icon: Icon(Icons.close),
-            ),
-          ],
-        )
-    );
-  }
-}
-
-class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 메뉴얼이 필요함
-  var follower = 0;
-  var friend = false;  // 현재 친구인지 아닌지
-  var profileImage = [];  // Profile 페이지 방문시 get 요청해서 데이터 가져오고 그걸 state 안에 넣기
-
-  getProfileData() async {  // Profile 페이지 방문 시 이거 실행하면 된다.
-    var profileResult = await http.get(Uri.parse('https://codingapple1.github.io/app/profile.json'));
-    var profileResult2 = jsonDecode(profileResult.body);
-    profileImage = profileResult2;
-    notifyListeners();
-  }
-
-  addFollower(){  // 친구여부 == false면 +1 / 친구여부 == true면 -1
-    if (friend == false) {
-      follower++;
-      friend = true;
-    } else {
-      follower--;
-      friend = false;
-    }
-    notifyListeners();  // 재렌더링 하라.
-  }
-}
-
-class Store2 extends ChangeNotifier {  // store는 여러개 만들어도 상관없다.
-  var name = 'john kim';
-}
-
-// Provider 사용법
-// 1. store 만들기
-// 2. store 쓸 위젯들 등록
-
-// Provider 사용법 (Profile에서 MyApp의 state 쓰려면)
-// 1. state 보관함 (store) 만들기
-// 2. store 원하는 위젯 등록하기 - 이 state 쓰고 싶은 위젯들을 전부 ChangeNotifieProvider()로 감싸야 한다.
-//    모든 위젯들이 사용할거면 MaterialApp() 을 감싸면 된다.
-// 3. store에 있던 state를 사용하고 싶으면 context.watch<store명>() 원하는 것 점찍어서 쓰면 된다. Text(context.watch<Store1>().name)
-
-class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(context.watch<Store2>().name),),
-      body: CustomScrollView(  // 각각이 아닌 전체 스크롤바 생성해주는 CustomScrollView() children이 아닌 slivers로 작성해야 한다.
-        slivers: [  // slivers 안에 있는 것들을 다 합쳐서 스크롤바를 만들어 줌
-          SliverToBoxAdapter(child: ProfileHeader()),
-          SliverGrid(delegate: SliverChildBuilderDelegate(
-                (c, i) => Image.network(context.watch<Store1>().profileImage[i]),
-            childCount: context.watch<Store1>().profileImage.length,
-          ),  // 격자 몇개 만들 것
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisCount: 2 )),
-          // SliverList(delegate: delegate),
-          // SliverAppBar(),
-        ],
-          // slivers 안에는 평소에 쓰던 위젯을 못 넣는다.
-          // 격자 넣고 싶으면 SliverGrid()
-          // ListView넣고 싶으면 SliverList()
-          // Container 넣고 싶으면 SliverToBoxAdapter()
-          // 예쁜 헤더는 SliverAppBar()
-
-          // GridView.builder(  // 격자 만들 땐 GridView.builder()
-          //   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisCount: 2 ),
-          //   itemBuilder: (c, i) {
-          //     return Container(color : Colors.grey);
-          //   },
-          //   itemCount: 3,
-          // ),
-      )
-    );
-  }
-}
-
-class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        CircleAvatar(  // 이미지를 동그랗게 넣고 싶으면 CircleAvatar()
-          radius: 30,
-          backgroundColor: Colors.grey,
-          // backgroundImage: ,
-        ),
-        Text('팔로워 ${context.watch<Store1>().follower}명'),
-        ElevatedButton(onPressed: () {  // 버튼을 누르면 위에 있는 state 수정 방법을 꺼내 쓰고 싶다.
-          context.read<Store1>().addFollower();  // 함수 이름 갖다 쓴다.
-        }, child: Text('팔로우')),
-        ElevatedButton(onPressed: () {
-          context.read<Store1>().getProfileData();
-        }, child: Text('사진 가져오기')),
-      ],
     );
   }
 }
