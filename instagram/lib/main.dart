@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/shop.dart';
 import 'style.dart' as style;
 import 'package:http/http.dart' as http;
 import 'dart:convert';  // convert는 유용한 함수 몇개 들어있는 기본 패키지
@@ -16,6 +17,9 @@ import 'notification.dart';
 // firebase
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+
+// 관계형 database - 보통 SQL 언어를 이용해서 데이터를 입출력함
+// 비관계형 NoSQL database - SQL안씀 Map{} 자료형 그대로 저장 가능 (Firestore)
 
 void main() async {
 
@@ -159,7 +163,7 @@ class _MyAppState extends State<MyApp> {
             )
           ]
       ),
-      body: [Home(data: data, addData: addData ), Text('샵페이지')][tab],
+      body: [Home(data: data, addData: addData ), Shop()][tab],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,

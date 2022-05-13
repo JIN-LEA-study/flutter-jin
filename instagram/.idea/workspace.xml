@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="firebase settings">
+      <change afterPath="$PROJECT_DIR$/lib/shop.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
+  </component>
+  <component name="ProjectId" id="291b2W3Xbhaun4gCHHTPJwFj7nS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JYK\Desktop\flutter\instagram\android\app\src\main\res\drawable" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="" />
+      <created>1652283358552</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1652283358552</updated>
+    </task>
+    <task id="LOCAL-00001" summary="ThemeData로 스타일 적용">
+      <created>1652286788617</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1652286788617</updated>
+    </task>
+    <task id="LOCAL-00002" summary="style.dart 파일 분리">
+      <created>1652289415813</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1652289415813</updated>
+    </task>
+    <task id="LOCAL-00003" summary="레이아웃 중간에 ThemeData() 생성">
+      <created>1652289789266</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652289789266</updated>
+    </task>
+    <task id="LOCAL-00004" summary="BottomNavigationBar로 하단바 생성">
+      <created>1652329709720</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1652329709720</updated>
+    </task>
+    <task id="LOCAL-00005" summary="onTap이용하여 동적인 UI 생성">
+      <created>1652334031083</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1652334031083</updated>
+    </task>
+    <task id="LOCAL-00006" summary="shop 페이지 레이아웃 구현">
+      <created>1652336119171</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1652336119171</updated>
+    </task>
+    <task id="LOCAL-00007" summary="http 패키지 추가 및 서버 GET 요청">
+      <created>1652338803814</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1652338803814</updated>
+    </task>
+    <task id="LOCAL-00008" summary="데이터 출력 및 GET 요청 에러 예외처리">
+      <created>1652340346145</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1652340346145</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Future다루기 및 FutureBuilder()">
+      <created>1652341272622</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652341272622</updated>
+    </task>
+    <task id="LOCAL-00010" summary="스크롤 위치 파악 후 더보기 요청">
+      <created>1652350637990</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652350637990</updated>
+    </task>
+    <task id="LOCAL-00011" summary="상세 페이지 만들기 - Navigator">
+      <created>1652361139470</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652361139470</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Route 만들기">
+      <created>1652361644363</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1652361644363</updated>
+    </task>
+    <task id="LOCAL-00013" summary="image_picker 설치 및 이미지 보여주기 기능 추가">
+      <created>1652370279121</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652370279121</updated>
+    </task>
+    <task id="LOCAL-00014" summary="선택한 이미지와 텍스트를 게시물로 업로드하는 기능">
+      <created>1652376352030</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652376352030</updated>
+    </task>
+    <task id="LOCAL-00015" summary="shared preferences 설치">
+      <created>1652377498324</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652377498325</updated>
+    </task>
+    <task id="LOCAL-00016" summary="shared preferences 사용하여 DB없이 데이터 저장">
+      <created>1652407315545</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1652407315545</updated>
+    </task>
+    <task id="LOCAL-00017" summary="fade-in 애니메이션 추가">
+      <created>1652411023867</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652411023867</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Slide 애니메이션 추가">
+      <created>1652411338408</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652411338408</updated>
+    </task>
+    <task id="LOCAL-00019" summary="provider 패키지 설치">
+      <created>1652411837803</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1652411837803</updated>
+    </task>
+    <task id="LOCAL-00020" summary="provider를 사용한 상태 관리 기능 추가">
+      <created>1652414426426</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1652414426426</updated>
+    </task>
+    <task id="LOCAL-00021" summary="팔로우 기능 추가">
+      <created>1652415662397</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1652415662397</updated>
+    </task>
+    <task id="LOCAL-00022" summary="store 추가 생성 및 GET 요청">
+      <created>1652419467796</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1652419467796</updated>
+    </task>
+    <task id="LOCAL-00023" summary="GridView, CustomScrollView로 프로필 페이지 만들기">
+      <created>1652423446354</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1652423446354</updated>
+    </task>
+    <task id="LOCAL-00024" summary="프로필 페이지 - Grid 사용하여 유저 사진 보여주기">
+      <created>1652423859282</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1652423859283</updated>
+    </task>
+    <task id="LOCAL-00025" summary="home, profile, store, upload 파일 분리">
+      <created>1652425614113</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1652425614115</updated>
+    </task>
+    <task id="LOCAL-00026" summary="flutter local notifications 설치 및 기본 설정 코드 추가">
+      <created>1652426044604</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1652426044604</updated>
+    </task>
+    <task id="LOCAL-00027" summary="notification 아이콘 추가 및 알림 띄우는 함수 추가">
+      <created>1652428634221</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1652428634221</updated>
+    </task>
+    <task id="LOCAL-00028" summary="알림 누를 시 지정한 화면으로 이동 기능 추가">
+      <created>1652429562166</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1652429562166</updated>
+    </task>
+    <task id="LOCAL-00029" summary="주기적으로 알림 띄우는 기능 추가">
+      <created>1652431038579</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1652431038579</updated>
+    </task>
+    <task id="LOCAL-00030" summary="firebase 패키지 설치">
+      <created>1652431416383</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1652431416383</updated>
+    </task>
+    <task id="LOCAL-00031" summary="firebase settings">
+      <created>1652435459127</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1652435459127</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="http 패키지 추가 및 서버 GET 요청" />
+    <MESSAGE value="데이터 출력 및 GET 요청 에러 예외처리" />
+    <MESSAGE value="Future다루기 및 FutureBuilder()" />
+    <MESSAGE value="스크롤 위치 파악 후 더보기 요청" />
+    <MESSAGE value="상세 페이지 만들기 - Navigator" />
+    <MESSAGE value="Route 만들기" />
+    <MESSAGE value="image_picker 설치 및 이미지 보여주기 기능 추가" />
+    <MESSAGE value="선택한 이미지와 텍스트를 게시물로 업로드하는 기능" />
+    <MESSAGE value="shared preferences 설치" />
+    <MESSAGE value="shared preferences 사용하여 DB없이 데이터 저장" />
+    <MESSAGE value="fade-in 애니메이션 추가" />
+    <MESSAGE value="Slide 애니메이션 추가" />
+    <MESSAGE value="provider 패키지 설치" />
+    <MESSAGE value="provider를 사용한 상태 관리 기능 추가" />
+    <MESSAGE value="팔로우 기능 추가" />
+    <MESSAGE value="store 추가 생성 및 GET 요청" />
+    <MESSAGE value="GridView, CustomScrollView로 프로필 페이지 만들기" />
+    <MESSAGE value="프로필 페이지 - Grid 사용하여 유저 사진 보여주기" />
+    <MESSAGE value="home, profile, store, upload 파일 분리" />
+    <MESSAGE value="flutter local notifications 설치 및 기본 설정 코드 추가" />
+    <MESSAGE value="notification 아이콘 추가 및 알림 띄우는 함수 추가" />
+    <MESSAGE value="알림 누를 시 지정한 화면으로 이동 기능 추가" />
+    <MESSAGE value="주기적으로 알림 띄우는 기능 추가" />
+    <MESSAGE value="firebase 패키지 설치" />
+    <MESSAGE value="firebase settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="firebase settings" />
+  </component>
+</project>
