@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="팔로우 기능 추가">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="store 추가 생성 및 GET 요청">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
@@ -36,7 +36,9 @@
     <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="291b2W3Xbhaun4gCHHTPJwFj7nS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -214,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652415662397</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="store 추가 생성 및 GET 요청">
+      <created>1652419467796</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1652419467796</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -251,6 +260,7 @@
     <MESSAGE value="provider 패키지 설치" />
     <MESSAGE value="provider를 사용한 상태 관리 기능 추가" />
     <MESSAGE value="팔로우 기능 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="팔로우 기능 추가" />
+    <MESSAGE value="store 추가 생성 및 GET 요청" />
+    <option name="LAST_COMMIT_MESSAGE" value="store 추가 생성 및 GET 요청" />
   </component>
 </project>
