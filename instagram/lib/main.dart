@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
     // var result = storage.getString('name');  // 데이터 꺼내는 함수 getString() getBool() getInt() getDouble() getStringList()
     var map = {'age' : 20};
     storage.setString('map', jsonEncode(map));  // Map저장 함수는 없다. JSON으로 바꿔서 저장해야 한다.
-    var result3 = storage.getString('map') ?? '없는데요';  // JSON임(문자임)  // null체크를 해줘야 에러가 뜨지 않는다.
+    // var result3 = storage.getString('map') ?? '없는데요';  // JSON임(문자임)  // null체크를 해줘야 에러가 뜨지 않는다.
     // print(jsonDecode(result3)['age']);  // JSON -> Map 변환은 jsonDecode(map자료)  // jsonDecode()안엔 문자 넣기
     // print(result);
   }
@@ -114,7 +114,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return Scaffold(
         floatingActionButton: FloatingActionButton(child: Text('+'), onPressed: () {
-          showNotification();
+          // showNotification();
+          showNotification2();
           },
         ),
       appBar: AppBar(

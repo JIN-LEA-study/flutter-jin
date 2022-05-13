@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:timezone/timezone.dart' as tz;  // flutter_local_notifications 패키지에 기본 포함된 패키지
 
 final notifications = FlutterLocalNotificationsPlugin();
 
@@ -63,4 +65,70 @@ showNotification() async {
       payload: '부가정보, 알림에 몰래 정보 심어 놓을 수 있다.'
       // payload 쓰지 말고 몰래 정보 심어놓기 제일 좋은 곳은 shared_preferences
   );
+}
+
+showNotification2() async {
+
+  tz.initializeTimeZones();
+
+  var androidDetails = const AndroidNotificationDetails(
+    '유니크한 알림 ID',
+    '알림종류 설명',
+    priority: Priority.high,
+    importance: Importance.max,
+    color: Color.fromARGB(255, 255, 0, 0),
+  );
+  var iosDetails = const IOSNotificationDetails(
+    presentAlert: true,
+    presentBadge: true,
+    presentSound: true,
+  );
+
+  // // 알림을 원하는 시간에 띄워준다.  // 시간 입력하면 이 시간에 알림 뜬다.
+  // notifications.zonedSchedule(
+  //     2,
+  //     '제목2',
+  //     '내용2',
+  //     // tz.TZDateTime.now(tz.local), 현재 시간이 나온다. (이 폰의 현재 시간)
+  //     tz.TZDateTime.now(tz.local).add(Duration(seconds: 3)),  // 3초 후에 알림이 뜬다.  // .add()
+  //     NotificationDetails(android: androidDetails, iOS: iosDetails),
+  //     androidAllowWhileIdle: true,
+  //     uiLocalNotificationDateInterpretation:
+  //     UILocalNotificationDateInterpretation.absoluteTime
+
+  // // 주기적으로 알림 띄우기
+  // notifications.periodicallyShow(
+  //   2,
+  //   '제목2',
+  //   '내용2',
+  //   RepeatInterval.daily,  // 24시간 마다 알림을 띄운다.  // 매일 7시에 알림띄우는 건 zonedSchedule을 써야한다.
+  //   NotificationDetails(android: androidDetails, iOS: iosDetails),
+  //   androidAllowWhileIdle: true,
+
+  // 주기적으로 원하는 시간에 알림 띄우기
+  notifications.zonedSchedule(
+      2,
+      '제목2',
+      '내용2',
+
+      // tz.TZDateTime.now(tz.local),  // 현재 시간
+      makeDate(8, 30, 0),  // 매일 8시 30분으로 설정
+      NotificationDetails(android: androidDetails, iOS: iosDetails),
+      androidAllowWhileIdle: true,
+      uiLocalNotificationDateInterpretation:
+      UILocalNotificationDateInterpretation.absoluteTime,
+      matchDateTimeComponents: DateTimeComponents.time,  // 매일 같은 시간에 알림 띄워준다.
+      // matchDateTimeComponents: DateTimeComponents.dayOfMonthAndTime  // 매주 같은 시간에 알림 띄워준다.
+  );
+}
+
+// 시간 함수
+makeDate(hour, min, sec) {
+  var now = tz.TZDateTime.now(tz.local);
+  var when = tz.TZDateTime(tz.local, now.year, now.month, now.day, hour, min, sec);  // 파라미터로 입력한 시간을 만들어 준다.
+  if (when.isBefore(now)) {  // 날짜가 오늘 보다 이전일 경우 하루를 더해달라는 예외처리
+    return when.add(Duration(days: 1));
+  } else {
+    return when;
+  }
 }

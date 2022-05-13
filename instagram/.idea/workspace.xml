@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="notification 아이콘 추가 및 알림 띄우는 함수 추가">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="알림 누를 시 지정한 화면으로 이동 기능 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/notification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/notification.dart" afterDir="false" />
@@ -264,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652428634221</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="알림 누를 시 지정한 화면으로 이동 기능 추가">
+      <created>1652429562166</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1652429562166</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,7 +287,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="레이아웃 중간에 ThemeData() 생성" />
     <MESSAGE value="BottomNavigationBar로 하단바 생성" />
     <MESSAGE value="onTap이용하여 동적인 UI 생성" />
     <MESSAGE value="shop 페이지 레이아웃 구현" />
@@ -305,6 +311,7 @@
     <MESSAGE value="home, profile, store, upload 파일 분리" />
     <MESSAGE value="flutter local notifications 설치 및 기본 설정 코드 추가" />
     <MESSAGE value="notification 아이콘 추가 및 알림 띄우는 함수 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="notification 아이콘 추가 및 알림 띄우는 함수 추가" />
+    <MESSAGE value="알림 누를 시 지정한 화면으로 이동 기능 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="알림 누를 시 지정한 화면으로 이동 기능 추가" />
   </component>
 </project>
