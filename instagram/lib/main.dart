@@ -10,8 +10,12 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-      ChangeNotifierProvider(  // MaterialApp() 자식 위젯들은 전부 Store1에 있던 state 사용 가능하다.
-          create: (c) => Store1(),
+      MultiProvider(  // store 여러개면 MultiProvider로 등록해야 한다.
+          providers: [
+            ChangeNotifierProvider(create: (c) => Store1()),
+            ChangeNotifierProvider(create: (c) => Store2()),
+          ],
+
           child: MaterialApp(
               theme: style.theme,
               home: MyApp()
@@ -278,9 +282,16 @@ class Upload extends StatelessWidget {
 }
 
 class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 메뉴얼이 필요함
-  var name = 'john kim';  // 이제 모든 위젯에서 이거 직접 사용 가능
   var follower = 0;
   var friend = false;  // 현재 친구인지 아닌지
+  var profileImage = [];  // Profile 페이지 방문시 get 요청해서 데이터 가져오고 그걸 state 안에 넣기
+
+  getProfileData() async {  // Profile 페이지 방문 시 이거 실행하면 된다.
+    var profileResult = await http.get(Uri.parse('https://codingapple1.github.io/app/profile.json'));
+    var profileResult2 = jsonDecode(profileResult.body);
+    profileImage = profileResult2;
+    notifyListeners();
+  }
 
   addFollower(){  // 친구여부 == false면 +1 / 친구여부 == true면 -1
     if (friend == false) {
@@ -290,20 +301,13 @@ class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 �
       follower--;
       friend = false;
     }
-    notifyListeners();
-  }
-
-  changeName() {  // 버튼을 누르면 store의 state를 'john park'으로 변경해보자.  // 메뉴얼
-    name = 'john park';
     notifyListeners();  // 재렌더링 하라.
   }
 }
 
-// store는 여러개 만들어도 상관없다.
-// class Store2 extends ChangeNotifier {
-//   var follower = 0;
-//   follower 변경함수들~~
-// }
+class Store2 extends ChangeNotifier {  // store는 여러개 만들어도 상관없다.
+  var name = 'john kim';
+}
 
 // Provider 사용법
 // 1. store 만들기
@@ -317,11 +321,10 @@ class Store1 extends ChangeNotifier {  // store는 창고  // 허락받든가 �
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(context.watch<Store1>().name),),
+      appBar: AppBar(title: Text(context.watch<Store2>().name),),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
@@ -333,7 +336,10 @@ class Profile extends StatelessWidget {
           Text('팔로워 ${context.watch<Store1>().follower}명'),
           ElevatedButton(onPressed: () {  // 버튼을 누르면 위에 있는 state 수정 방법을 꺼내 쓰고 싶다.
             context.read<Store1>().addFollower();  // 함수 이름 갖다 쓴다.
-          }, child: Text('팔로우'))
+          }, child: Text('팔로우')),
+          ElevatedButton(onPressed: () {
+            context.read<Store1>().getProfileData();
+          }, child: Text('사진 가져오기')),
         ],
       )
     );
