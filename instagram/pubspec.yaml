@@ -32,6 +32,9 @@ dependencies:
   http: ^0.13.4
   image_picker: ^0.8.4+4
   shared_preferences: ^2.0.11
+  provider: ^6.0.1
+
+  # pub get 버튼이 없으면 alt + f12 눌러서 터미널을 열어서 flutter pub get 입력
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

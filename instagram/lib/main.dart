@@ -5,7 +5,8 @@ import 'dart:convert';  // convert는 유용한 함수 몇개 들어있는 기�
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter/cupertino.dart';
+// import 'package:flutter/cupertino.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(

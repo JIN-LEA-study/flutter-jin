@@ -12,9 +12,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="fade-in 애니메이션 추가">
+    <list default="true" id="e46981fb-a094-4e5c-bb40-94bf190cccb6" name="Default Changelist" comment="Slide 애니메이션 추가">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652411023867</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Slide 애니메이션 추가">
+      <created>1652411338408</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652411338408</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +228,7 @@
     <MESSAGE value="shared preferences 설치" />
     <MESSAGE value="shared preferences 사용하여 DB없이 데이터 저장" />
     <MESSAGE value="fade-in 애니메이션 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="fade-in 애니메이션 추가" />
+    <MESSAGE value="Slide 애니메이션 추가" />
+    <option name="LAST_COMMIT_MESSAGE" value="Slide 애니메이션 추가" />
   </component>
 </project>
