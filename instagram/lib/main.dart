@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'home.dart';
 import 'store.dart';
 import 'upload.dart';
+import 'notification.dart';
 
 void main() {
   runApp(
